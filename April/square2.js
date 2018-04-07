@@ -1,21 +1,64 @@
 var chartSize = 180;
 var margin = {top: 30, right: 10, bottom: 10, left: 10}
 var base = 10;
-var color = d3.scaleOrdinal().range(['lightgrey','lightgreen','lightblue','#ffff80','#e6b3ff']).domain(["White","Asian","Latino","Black_or_African_American","Other_minorities_rest"]); 
+var color = d3.scaleOrdinal().range(['lightgrey','#aaff80','#b3e6ff','#ffbb99','#ccb3ff']).domain(["White","Asian","Latino","Black_or_African_American","Other_minorities_rest"]); 
 var raceTab = ["White","Asian","Black_or_African_American","Latino","Other_minorities_rest"];
 
 var svgContainer = d3.select(".content").append("div").attr("class", "chartContainer");
 
+var legendData = [
+	{race: raceTab[0], perc: 60},
+	{race: raceTab[1], perc: 10},
+	{race: raceTab[2], perc: 10},
+	{race: raceTab[3], perc: 10},
+	{race: raceTab[4], perc: 10}	
+];
+
 d3.csv("data/proportionFor100race.csv", function(data) {
 	//console.log(data);
+	
+	addLegend();
+	
 	var prepData = prepareData(data);
 	//console.log(prepData );
 	drawCharts(svgContainer,prepData);
 	
 	setupIsotope();
-	
-  
+
 });
+
+function addLegend() {
+
+	var svgLegend = d3.select(".legendContainer").append("svg")
+		.attr("width", chartSize)
+	  	.attr("height", chartSize);
+	  	
+	svgLegend.selectAll("rect")
+			.data(prepareSingleChartData(legendData))
+			.enter()
+			.append("rect")
+			.attr("x", (d,i) => d.x * chartSize/base)
+			.attr("y", (d,i) => d.y * chartSize/base)
+			.attr("width", chartSize/base - 1)
+			.attr("height", chartSize/base - 1)
+			.style("fill", (d,i) => {return color(d.color);});
+	
+	// COLOR LEGEND //
+	var colorCat = d3.scaleOrdinal().range(color.range()).domain(["White","Asian","Black or African American","Latino","Other minorities (Native Hawaiian or Pacific Islander, American Indian Alaskan Native, 2 or more races)"]);
+	var colorLegend = d3.legendColor()
+		.labelFormat(d3.format(".2f"))
+  		.labelWrap(160)
+        .scale(colorCat)
+        .shapePadding(5)
+        .shapeWidth(chartSize/base - 2)
+        .shapeHeight(chartSize/base - 2)
+        .labelOffset(10);
+   
+   d3.select(".legendColor").append("svg").append("g")
+        .attr("class", "legend")
+        .call(colorLegend);
+
+}
 
 function setupIsotope(){
 
@@ -73,7 +116,7 @@ function getValueSort(d,text){
 	for (i=0;i<raceTab.length;i++){
 		if(d.percArray[i].race == text){
 			perc = d.percArray[i].perc;
-			console.log(d.percArray[i]);
+			//console.log(d.percArray[i]);
 		}
 	}
 	return perc * -1;

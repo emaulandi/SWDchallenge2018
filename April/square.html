@@ -8,28 +8,67 @@
 	<script src="jquery-2.2.3.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.5/d3-legend.js"></script>
 
 </head>
 
 <body>
 	<div class="header">
+		<div class="title">
+			<h1> Sillicon Valley companies as 100 people  </h1>
+			<h1 class="grey">  : Visualizing d</h1>
+			<h1 class="title1">ive</h1>
+			<h1 class="title2">rs</h1>
+			<h1 class="title3">it</h1>
+			<h1 class="title4">y</h1>
+			<h3> Based on the amazing work of <a href="https://www.revealnews.org/svdiversity">Reveal from The Center for Investigative Reporting</a></h3>
+		<br>
+		</div>
+		
+		<p> Reveal surveyed 211 of the largest Silicon Valley tech companies that were required to submit EEO-1 diversity reports to the federal government for 2016.<p> 
+		<p> <b>Only 23 did. Find out who didn't <a href="https://apps.revealnews.org/silicon-valley-diversity-list/">here</a>.</b> They compiled the data and wrote <a href="https://www.revealnews.org/article/hidden-figures-how-silicon-valley-keeps-diversity-data-secret/">a great article</a> about it.</p>
+		<p> The data is available <a href="https://github.com/cirlabs/Silicon-Valley-Diversity-Data">here</a> under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database License</a>.</p>
 	</div>
 	<div class="content">
 	
-		<div class="legend"></div>
+		<div class="legend">
+			<h3> How to read ? </h3>
+			
+			<div class="legendBlock">
+				<div class="legendContainer"></div>
+				<div class="legendColor"></div>
+			</div>
+				<div class="legendExplanation">
+					<p> A company is represented by 100 rectangles, each rectangle would be one person. The rectangle color represent its race.
+					<br> <i>Here we would have 60 white people, 10 asian people, 10 black or african american people, 10 latino people and 10 people from other minorities.</i> </p>
+				</div>
+				<div class="legendDetail">
+					<p> It's actually a representation of the proportion of each race within the company <i>(1 rectangle = 1%).</i>
+					<br> The largest proportion is shown first, from the top left.</p>
+					<p> For the purpose of the 100 people display, percentage for each categories expect other minorities have been rounded up and induce a small variation. Original data can be found on github (see below).</p>
+				</div>
+			
+		</div>
 		
 		<div class="button-group sort-by-button-group">
+			<h3> Let's explore </h3>
+			<p> Sort by <p>
 		  <button class="button is-checked" data-sort-value="company">Company Name</button>
-		  <button class="button" data-sort-value="white">White</button>
-		  <button class="button" data-sort-value="asian">Asian</button>
-		  <button class="button" data-sort-value="black">Black or African American</button>
-		  <button class="button" data-sort-value="latino">Latino</button>
-		  <button class="button" data-sort-value="others">Other Minorities</button>
+		  <p> Sort by greater proprotion of <p> 
+		  <button class="button" style="background-color:lightgrey;" data-sort-value="white"><b>White</b></button>
+		  <button class="button" style="background-color:#aaff80;" data-sort-value="asian"><b>Asian</b></button>
+		  <button class="button" style="background-color:#b3e6ff;" data-sort-value="black"><b>Black or African American</b></button>
+		  <button class="button" style="background-color:#ffbb99;" data-sort-value="latino"><b>Latino</b></button>
+		  <button class="button" style="background-color:#ccb3ff;" data-sort-value="others"><b>Other Minorities</b></button>
 		</div>
 
 		
 	</div>
-	<div class="footer"></div>
+	<div class="footer">
+		<p>Made by <a href="https://emaulandi.github.io/">Edith Visualize</a> <i>(<a href="https://twitter.com/edithmaulandi">@edithmaulandi</a>)</i> for #SWDChallenge April.</p>
+		<p>Code and aggregated data are available on <a href="https://github.com/emaulandi/SWDchallenge2018">github</a></p>
+		<p>With the help of <a href="https://isotope.metafizzy.co/sorting.html">Isotope.js</a> and <a href="http://d3-legend.susielu.com/">d3-legend of Susie Lu</a></p>
+	</div>
 
 </body>
 
