@@ -1,0 +1,91 @@
+.chart {
+
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-top:0;
+  padding-left:0;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	padding: 25px;
+	margin: auto;
+	
+}
+
+p {
+	padding-top:0;
+}
+
+h1 {
+	display: inline;
+}
+
+.title {
+	text-align: center;
+}
+
+.legendBlock {
+	display: flex;
+}
+
+.legendContainer {
+	padding-right: 30px;
+}
+
+.legendDetail {
+	color: #595959;
+}
+
+.grey {
+	color: grey;
+}
+
+.title1 {
+	color: #aaff80;
+}
+
+.title2 {
+	color: #b3e6ff;
+}
+
+.title3 {
+	color: #ffbb99;
+}
+
+.title4 {
+	color: #ccb3ff;
+}
+
+.legend {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.label{
+	color: grey;
+	font-size: 12px;
+}
+
+a {
+	color: grey;
+}
+
+.button-group {
+	padding-bottom: 15px;
+}
+
+.button {
+    background-color: grey; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.footer {
+	padding-top: 30px;
+}
