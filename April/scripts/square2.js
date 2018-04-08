@@ -15,8 +15,8 @@ var legendData = [
 	{race: raceTab[4], perc: 10}	
 ];
 
-d3.csv("data/proportionFor100race.csv", function(data) {
-	//console.log(data);
+d3.csv("data/proportionFor100.csv", function(data) {
+	console.log(data);
 	
 	addLegend();
 	
